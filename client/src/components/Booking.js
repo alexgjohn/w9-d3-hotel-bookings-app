@@ -3,17 +3,27 @@ import { deleteBooking } from "../services/BookingService"
 
 
 const StyledTableHeader = styled.th`
+    text-align: center;
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
     background-color: #04AA6D;
     color: white;
-    width: 20%;
+    width: 300px;
 `
 
 const StyledTableData = styled.td`
+    text-align: center;
     border: 1px solid #ddd;
     padding: 8px;
+    width: 300px;
+`
+
+const RemoveButton = styled.button`
+    font-weight: bold;
+    background-color: rgb(131, 53, 140);
+    color: white;
+    
 `
 
 const Booking = ({ booking, removeBooking }) => {
@@ -42,7 +52,7 @@ const Booking = ({ booking, removeBooking }) => {
                 </tbody>
             </table>
 
-            <button onClick={handleDelete}>Remove</button>
+            <RemoveButton onClick={handleDelete}>Remove</RemoveButton>
             <hr></hr>
         </>
 

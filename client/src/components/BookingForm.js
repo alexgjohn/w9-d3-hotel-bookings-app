@@ -1,5 +1,10 @@
 import { useState } from 'react';
+import styled from "styled-components"
 import { postBooking } from "../services/BookingService"
+
+const FormBox = styled.div`
+    border-style: solid;
+`
 
 const BookingForm = ({addBooking}) => {
 
@@ -34,45 +39,44 @@ const BookingForm = ({addBooking}) => {
     }
 
     return (
-        <>
-        <h2>Add a booking!</h2>
-        <form 
-            onSubmit={onSubmit}
-            id="bookings-form"
-        >
-            <label htmlFor="name">Name: </label>
-            <input 
-                onChange={onChange}
-                id="name"
-                type="text"
-                name="name"
-                value={formData.name}
-                placeholder="Your name"
-            />
-            <label htmlFor="email">Email address: </label>
-            <input 
-                onChange={onChange}
-                id="email"
-                type="text"
-                name="email"
-                value={formData.email}
-                placeholder="Your email address"
-            />
-            <label htmlFor="checkedIn">Checked In? </label>
-            <select 
-                onChange={onChange}
-                id="checkedIn"
-                name="checkedIn"
+        <FormBox>
+            <h3>Add a booking!</h3>
+            <form 
+                onSubmit={onSubmit}
+                id="bookings-form"
             >
-                <option value={null}>Choose an option</option>
-                <option value={true}>Yes</option>
-                <option value={false}>No</option>
-            </select>
-            <input type="submit"/>
-        </form>
-        <hr></hr>
-
-        </>
+                <label htmlFor="name">Name: </label>
+                <input 
+                    onChange={onChange}
+                    id="name"
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    placeholder="Your name"
+                />
+                <label htmlFor="email">Email address: </label>
+                <input 
+                    onChange={onChange}
+                    id="email"
+                    type="text"
+                    name="email"
+                    value={formData.email}
+                    placeholder="Your email address"
+                />
+                <label htmlFor="checkedIn">Checked In? </label>
+                <select 
+                    onChange={onChange}
+                    id="checkedIn"
+                    name="checkedIn"
+                >
+                    <option value={null}>Choose an option</option>
+                    <option value={true}>Yes</option>
+                    <option value={false}>No</option>
+                </select>
+                <input type="submit"/>
+            </form>
+            <hr></hr>
+        </FormBox>
 
     )
     }
