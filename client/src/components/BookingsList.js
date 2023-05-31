@@ -1,13 +1,19 @@
 import Booking from "./Booking";
 
-const BookingsContainer = () => {
+const BookingsList = ({bookings, removeBooking}) => {
+    const bookingsList  = bookings.map((booking) => {
+        return <Booking booking={booking} key={booking._id} removeBooking={removeBooking}/>
+    })
+
     return (
         <>
-        <Booking /> 
+        
+            {bookingsList}
+    
         </>
 
     )
 }
 
-export default BookingsContainer;
+export default BookingsList;
 
