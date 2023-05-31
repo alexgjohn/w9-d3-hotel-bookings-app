@@ -24,7 +24,10 @@ const HotelContainer = () => {
         <>
         <h1>I'm a HotelContainer</h1>
         <BookingsContainer 
-          
+            bookings={bookings}
+            addBooking={addBooking}
+            removeBooking={removeBooking}
+            setBookings={setBookings}
         />
 
 
