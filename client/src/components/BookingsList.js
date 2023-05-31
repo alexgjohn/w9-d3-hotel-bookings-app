@@ -7,9 +7,7 @@ const BookingsList = ({bookings, removeBooking}) => {
 
     return (
         <>
-        
             {bookingsList}
-    
         </>
 
     )

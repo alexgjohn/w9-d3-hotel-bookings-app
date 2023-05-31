@@ -22,7 +22,7 @@ const HotelContainer = () => {
 
     return (
         <>
-        <h1>I'm a HotelContainer</h1>
+        <h1>Hotel</h1>
         <BookingsContainer 
             bookings={bookings}
             addBooking={addBooking}

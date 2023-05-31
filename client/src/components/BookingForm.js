@@ -6,8 +6,9 @@ const BookingForm = ({addBooking}) => {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
-        checkedIn: false
+        checkedIn: null
     })
+
 
     const onChange = (event) => {
         const newFormData = Object.assign({}, formData)
@@ -15,16 +16,21 @@ const BookingForm = ({addBooking}) => {
         setFormData(newFormData)
     }
 
+
     const onSubmit = (event) => {
         event.preventDefault()
-        postBooking(formData).then((data) => {
-            addBooking(data)
-        })
-        setFormData({
-            name: "",
-            email: "",
-            checkedIn: false
-        })
+        if (formData.name !== "" && formData.email !== "" && formData.checkedIn !== null) {
+            postBooking(formData)
+            .then((data) => {
+                addBooking(data)
+                setFormData({
+                    name: "",
+                    email: "",
+                    checkedIn: null
+                }) 
+            })
+        }
+        
     }
 
     return (
@@ -40,6 +46,8 @@ const BookingForm = ({addBooking}) => {
                 id="name"
                 type="text"
                 name="name"
+                value={formData.name}
+                placeholder="Your name"
             />
             <label htmlFor="email">Email address: </label>
             <input 
@@ -47,6 +55,8 @@ const BookingForm = ({addBooking}) => {
                 id="email"
                 type="text"
                 name="email"
+                value={formData.email}
+                placeholder="Your email address"
             />
             <label htmlFor="checkedIn">Checked In? </label>
             <select 
@@ -54,6 +64,7 @@ const BookingForm = ({addBooking}) => {
                 id="checkedIn"
                 name="checkedIn"
             >
+                <option value={null}>Choose an option</option>
                 <option value={true}>Yes</option>
                 <option value={false}>No</option>
             </select>
@@ -64,7 +75,8 @@ const BookingForm = ({addBooking}) => {
         </>
 
     )
-}
+    }
+
 
 export default BookingForm;
 
